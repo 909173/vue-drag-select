@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
+
     <h1>{{ msg }}</h1>
+    <test-component></test-component>
     <p>
       For guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -33,11 +35,16 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-
-@Component
+import { Component, Prop, Vue } from "vue-property-decorator";
+import testVue from "./test.vue";
+@Component({
+  components: {
+    "test-component": testVue
+  }
+})
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+  @Prop()
+  private msg!: string;
 }
 </script>
 
